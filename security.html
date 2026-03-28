@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AudioToNotes | Security</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="script.js"></script>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 dark:bg-[#0b1326]/60 backdrop-blur-xl shadow-[0px_20px_40px_rgba(218,226,253,0.04)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-violet-500 dark:text-[#d0bcff] text-2xl" data-icon="waves">waves</span>
+<a href="index.html" class="text-2xl font-black tracking-tighter text-violet-100 dark:text-[#dae2fd] font-headline">AudioToNotes</a>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 dark:text-[#939bb0] hover:text-violet-300 dark:hover:text-[#ccbeff] transition-all duration-300 font-inter text-sm" href="features.html">Features</a>
+<a class="text-violet-300 dark:text-[#ccbeff] font-inter text-sm font-bold" href="security.html">Security</a>
+<a class="text-slate-400 dark:text-[#939bb0] hover:text-violet-300 dark:hover:text-[#ccbeff] transition-all duration-300 font-inter text-sm" href="pricing.html">Pricing</a>
+<a class="text-slate-400 dark:text-[#939bb0] hover:text-violet-300 dark:hover:text-[#ccbeff] transition-all duration-300 font-inter text-sm" href="teams.html">Teams</a>
+</div>
+<div class="flex items-center gap-2 md:gap-4">
+<button class="hidden md:block text-slate-400 dark:text-[#939bb0] font-inter text-sm hover:text-on-surface">Login</button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 md:px-6 rounded-full font-headline font-bold text-sm active:scale-90 transition-transform" onclick="window.location.href='demo.html'">Book Demo</button>
+<button class="flex md:hidden text-on-surface p-2"><span class="material-symbols-outlined">menu</span></button>
+</div>
+</div>
+</nav>
+
+<main class="pt-32 pb-24 overflow-x-hidden">
+    <!-- Hero -->
+    <section class="max-w-7xl mx-auto px-8 text-center pt-16 pb-24 reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/20 border border-secondary/20 mb-8">
+            <span class="material-symbols-outlined text-sm text-secondary">shield_locked</span>
+            <span class="text-xs font-medium text-secondary uppercase tracking-widest">Enterprise Security</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-headline font-extrabold tracking-tight mb-6">
+            Your knowledge is <br/> <span class="text-gradient">secure by default.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-on-surface-variant max-w-3xl mx-auto">
+            We employ bank-grade security protocols, ensuring your audio, transcripts, and organizational intelligence never leave your control. 
+        </p>
+    </section>
+
+    <!-- Content -->
+    <section class="max-w-7xl mx-auto px-8 py-24 border-t border-outline-variant/10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8 reveal">
+                <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-4">
+                    <span class="material-symbols-outlined text-3xl">verified_user</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-headline font-bold leading-tight">SOC2 Type II &amp; <br/>Zero Data Usage</h2>
+                <p class="text-on-surface-variant text-lg leading-relaxed">
+                    We process your data securely, encrypt it at rest using AES-256, and under no circumstances do we use your corporate meeting data to train public LLMs.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check</span> SOC2 Type II Certified</li>
+                    <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check</span> ISO 27001 Compliant</li>
+                    <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-secondary text-lg">check</span> Single Sign-On (SAML/OAuth)</li>
+                </ul>
+            </div>
+            <div class="relative group reveal delay-200">
+                <div class="absolute -inset-4 bg-secondary/20 rounded-[2rem] blur-2xl opacity-40 group-hover:opacity-60 transition duration-700"></div>
+                <div class="relative rounded-2xl overflow-hidden glass-panel border border-outline-variant/30 shadow-2xl glass-3d">
+                    <div class="w-full h-full min-h-[350px] flex flex-col items-center justify-center p-8 glass-panel-content pb-12">
+    <!-- Glowing Shield Logo -->
+    <div class="relative mb-10 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-secondary/40 blur-2xl rounded-full"></div>
+        <div class="relative w-28 h-32 bg-surface-container-highest border border-secondary/30 rounded-2xl flex items-center justify-center flex-col shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+            <span class="material-symbols-outlined text-5xl text-secondary mb-2">admin_panel_settings</span>
+            <span class="text-[10px] font-bold text-secondary uppercase tracking-widest leading-none">AES-256</span>
+        </div>
+    </div>
+    <!-- Simple Status List -->
+    <div class="w-full max-w-sm space-y-3">
+        <div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-highest border border-outline-variant/10 shadow-lg">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary text-base">verified</span>
+                <span class="text-xs font-bold font-mono text-on-surface uppercase tracking-wide">SOC2 Monitor</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></div>
+                <span class="text-xs text-secondary font-mono font-bold tracking-widest">ACTIVE</span>
+            </div>
+        </div>
+        <div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-highest border border-outline-variant/10 shadow-lg translate-x-4">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-tertiary text-base">lock</span>
+                <span class="text-xs font-bold font-mono text-on-surface uppercase tracking-wide">Data Transit</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-xs text-tertiary font-mono font-bold tracking-widest">SECURE</span>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+</section>
+
+    <!-- Security Features Grid -->
+    <section class="py-24 bg-surface-container-low/50 border-t border-outline-variant/10">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-headline font-extrabold mb-4">Comprehensive Protection</h2>
+                <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Every layer of our infrastructure is designed to defend your most sensitive organizational knowledge.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Grid Item 1 -->
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/40 transition-all duration-500 reveal delay-100">
+                    <span class="material-symbols-outlined text-3xl text-primary mb-6 block">enhanced_encryption</span>
+                    <h3 class="text-xl font-bold mb-3">Encryption Everywhere</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">All data is encrypted in transit using TLS 1.3 and at rest with AES-256 block-level encryption. Key management is handled securely via AWS KMS.</p>
+                </div>
+                <!-- Grid Item 2 -->
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500 reveal delay-200">
+                    <span class="material-symbols-outlined text-3xl text-secondary mb-6 block">public</span>
+                    <h3 class="text-xl font-bold mb-3">Data Residency</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Choose where your data lives. We offer dedicated hosting regions in the US, EU (Frankfurt), and APAC (Sydney) to comply with local laws.</p>
+                </div>
+                <!-- Grid Item 3 -->
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-tertiary/40 transition-all duration-500 reveal delay-300">
+                    <span class="material-symbols-outlined text-3xl text-tertiary mb-6 block">rule</span>
+                    <h3 class="text-xl font-bold mb-3">Audit Trails</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Maintain complete visibility. Every read, write, and access event is logged immutably and exportable via our Enterprise API for SIEM ingestion.</p>
+                </div>
+                <!-- Grid Item 4 -->
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-error/40 transition-all duration-500 reveal delay-100">
+                    <span class="material-symbols-outlined text-3xl text-error mb-6 block">policy</span>
+                    <h3 class="text-xl font-bold mb-3">Strict RBAC</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Enforce least-privilege access. Granular Role-Based Access Controls sync with your IdP via SCIM to automatically manage employee lifecycles.</p>
+                </div>
+                <!-- Grid Item 5 -->
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/40 transition-all duration-500 reveal delay-200">
+                    <span class="material-symbols-outlined text-3xl text-primary mb-6 block">bug_report</span>
+                    <h3 class="text-xl font-bold mb-3">Vulnerability Management</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Continuous automated container scanning, static code analysis (SAST), and annual third-party penetration testing by independent security firms.</p>
+                </div>
+                <!-- Grid Item 6 -->
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500 reveal delay-300">
+                    <span class="material-symbols-outlined text-3xl text-secondary mb-6 block">gavel</span>
+                    <h3 class="text-xl font-bold mb-3">Privacy Frameworks</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Fully compliant with global privacy frameworks including GDPR and CCPA. We provide out-of-the-box tools for Data Subject Access Requests (DSAR).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 max-w-4xl mx-auto px-8 border-t border-outline-variant/10 reveal">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-headline font-extrabold mb-4">Security FAQ</h2>
+        </div>
+        <div class="space-y-6">
+            <div class="p-6 md:p-8 rounded-2xl bg-surface-container border border-outline-variant/10">
+                <h4 class="text-lg font-bold mb-2 flex items-center gap-3"><span class="material-symbols-outlined text-primary">psychology</span> Do you train AI models on my meeting data?</h4>
+                <p class="text-on-surface-variant leading-relaxed">Absolutely not. We have strict, legally binding Zero Data Retention policies with our foundational model providers. Your telemetry and transcript data is never used to improve public models or shared across tenants.</p>
+            </div>
+            <div class="p-6 md:p-8 rounded-2xl bg-surface-container border border-outline-variant/10">
+                <h4 class="text-lg font-bold mb-2 flex items-center gap-3"><span class="material-symbols-outlined text-secondary">domain</span> Where is my data physically located?</h4>
+                <p class="text-on-surface-variant leading-relaxed">By default, all tenant data is isolated and stored in AWS US-East (N. Virginia). Enterprise customers can select dedicated deployments in Europe (Frankfurt, Ireland) or Asia-Pacific (Sydney, Tokyo) to meet strict data residency requirements.</p>
+            </div>
+            <div class="p-6 md:p-8 rounded-2xl bg-surface-container border border-outline-variant/10">
+                <h4 class="text-lg font-bold mb-2 flex items-center gap-3"><span class="material-symbols-outlined text-tertiary">key</span> Can I manage my own encryption keys?</h4>
+                <p class="text-on-surface-variant leading-relaxed">Yes. AudioToNotes Enterprise supports Dedicated Key Management (EKM/BYOK). You can wrap your tenant's master key with a key you control via AWS KMS, allowing you to instantly revoke access to all data at any time.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#131b2e] dark:bg-[#131b2e] w-full pt-24 pb-12 mt-12 border-t border-outline-variant/10">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 px-8 max-w-7xl mx-auto">
+<div class="col-span-2 lg:col-span-1">
+<div class="text-xl font-bold text-violet-200 dark:text-[#dae2fd] mb-6 block font-headline">AudioToNotes</div>
+<p class="text-slate-500 dark:text-[#939bb0] font-inter text-sm leading-relaxed mb-6">The intelligent curator for teams that communicate effectively.</p>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Platform</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="features.html">Features</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">API</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="security.html">Security</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Company</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">About</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Careers</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Blog</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Resources</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Research</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Sales</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="teams.html">Teams</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Legal</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Privacy</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Terms</a>
+</nav>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-20 pt-8 border-t border-outline-variant/10 text-center md:text-left">
+<span class="text-slate-500 dark:text-[#939bb0] font-inter text-sm">© 2024 AudioToNotes. The Intelligent Curator.</span>
+</div>
+</footer>
+</body></html>

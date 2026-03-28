@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AetherScribe - Idle Capture</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&amp;family=Outfit:wght@300;400&amp;family=JetBrains+Mono&amp;family=Manrope:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#958ea0",
+                        "tertiary-fixed": "#ffd9e4",
+                        "on-secondary-fixed": "#001a42",
+                        "primary-fixed-dim": "#d0bcff",
+                        "inverse-surface": "#e1e2eb",
+                        "on-secondary-fixed-variant": "#004395",
+                        "inverse-primary": "#6d3bd7",
+                        "on-secondary": "#002e6a",
+                        "inverse-on-surface": "#2e3037",
+                        "surface-dim": "#10131a",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#e9ddff",
+                        "secondary-fixed": "#d8e2ff",
+                        "secondary": "#adc6ff",
+                        "on-background": "#e1e2eb",
+                        "tertiary": "#ffb0cd",
+                        "surface-bright": "#363940",
+                        "surface": "#10131a",
+                        "on-tertiary-fixed-variant": "#8c0053",
+                        "tertiary-fixed-dim": "#ffb0cd",
+                        "tertiary-container": "#f751a1",
+                        "surface-container-low": "#191c22",
+                        "background": "#10131a",
+                        "surface-container-high": "#272a31",
+                        "surface-container-lowest": "#0b0e14",
+                        "on-surface-variant": "#cbc3d7",
+                        "on-primary-container": "#340080",
+                        "primary": "#d0bcff",
+                        "surface-container-highest": "#32353c",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#5516be",
+                        "surface-variant": "#32353c",
+                        "on-secondary-container": "#e6ecff",
+                        "primary-container": "#a078ff",
+                        "on-surface": "#e1e2eb",
+                        "on-error": "#690005",
+                        "secondary-container": "#0566d9",
+                        "outline-variant": "#494454",
+                        "on-primary": "#3c0091",
+                        "surface-container": "#1d2026",
+                        "on-primary-fixed": "#23005c",
+                        "on-tertiary-fixed": "#3e0022",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#640039",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-container": "#570032"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Outfit"],
+                        "label": ["Outfit"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-mesh {
+            background-color: #0b0e14;
+            background-image: 
+                radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(236, 72, 153, 0.15) 0px, transparent 50%);
+        }
+        .orb-pulse {
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.2), inset 0 0 20px rgba(139, 92, 246, 0.2);
+        }
+        .glass-hairline {
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-mesh font-body text-on-surface selection:bg-primary/30 min-h-screen overflow-hidden">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-12 py-8 w-full">
+<div class="text-2xl font-bold tracking-tighter text-white/90 font-headline">AetherScribe</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-white border-b border-violet-500/50 pb-1 font-headline hover:text-white/80 transition-opacity duration-300" href="#">History</a>
+<a class="text-white/40 font-light font-headline hover:text-white/80 transition-opacity duration-300" href="#">Library</a>
+<a class="text-white/40 font-light font-headline hover:text-white/80 transition-opacity duration-300" href="#">Models</a>
+</nav>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-white/40 hover:text-white transition-colors cursor-pointer" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-white/40 hover:text-white transition-colors cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Side Navigation Shell -->
+<aside class="fixed left-6 top-1/2 -translate-y-1/2 h-[819px] w-20 rounded-full border border-white/10 bg-white/5 backdrop-blur-[32px] shadow-2xl shadow-violet-900/20 flex flex-col items-center py-10 justify-between z-40">
+<div class="flex flex-col items-center gap-8">
+<div class="group relative flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-violet-400 scale-110 transition-all duration-500 cubic-bezier(0.23,1,0.32,1)" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span class="text-[10px] font-headline text-violet-400 opacity-0 group-hover:opacity-100 transition-opacity">Capture</span>
+</div>
+<div class="group relative flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-white/30 hover:text-white transition-all duration-500 cubic-bezier(0.23,1,0.32,1)" data-icon="insights">insights</span>
+<span class="text-[10px] font-headline text-white/30 opacity-0 group-hover:opacity-100 transition-opacity">Analysis</span>
+</div>
+<div class="group relative flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-white/30 hover:text-white transition-all duration-500 cubic-bezier(0.23,1,0.32,1)" data-icon="folder_open">folder_open</span>
+<span class="text-[10px] font-headline text-white/30 opacity-0 group-hover:opacity-100 transition-opacity">Vault</span>
+</div>
+<div class="group relative flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-white/30 hover:text-white transition-all duration-500 cubic-bezier(0.23,1,0.32,1)" data-icon="tune">tune</span>
+<span class="text-[10px] font-headline text-white/30 opacity-0 group-hover:opacity-100 transition-opacity">Settings</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-white/30 hover:text-white transition-colors cursor-pointer" data-icon="help_outline">help_outline</span>
+</div>
+</aside>
+<!-- Background Orbs (Decorative) -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-[20%] left-[15%] w-96 h-96 bg-secondary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[20%] right-[15%] w-[500px] h-[500px] bg-tertiary-container/10 blur-[150px] rounded-full"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
+<!-- Status Indicator -->
+<div class="absolute top-32 flex items-center gap-3 px-4 py-2 rounded-full glass-hairline bg-white/5 backdrop-blur-xl">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#d0bcff]"></div>
+<span class="font-mono text-[10px] tracking-widest text-white/40 uppercase">System Ready // Precision Mode</span>
+</div>
+<!-- Central Mic Orb -->
+<div class="group cursor-pointer relative">
+<!-- Outer Glow Rings -->
+<div class="absolute -inset-12 bg-primary/5 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+<!-- The Main Orb -->
+<button onclick="window.location.href='demo-listening.html'" class="relative w-[140px] h-[140px] rounded-full glass-hairline bg-white/5 backdrop-blur-3xl flex items-center justify-center orb-pulse transform transition-all duration-500 hover:scale-105 active:scale-95">
+<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 to-transparent"></div>
+<span class="material-symbols-outlined text-5xl text-white/90 transition-all duration-500 group-hover:text-primary" data-icon="mic" style="font-variation-settings: 'wght' 200;">mic</span>
+</button>
+<!-- Orbital Data (Minimal Metadata) -->
+<div class="absolute -right-24 top-1/2 -translate-y-1/2 flex flex-col gap-1">
+<span class="font-mono text-[9px] text-white/20">DB LEVEL: -42</span>
+<span class="font-mono text-[9px] text-white/20">FREQ: 44.1 KHZ</span>
+</div>
+</div>
+<!-- Call to Action Text -->
+<div class="mt-12 text-center space-y-2">
+<h1 class="text-3xl font-headline font-bold text-white tracking-tight">
+                Tap to capture your thoughts.
+            </h1>
+<p class="font-body text-white/30 text-sm font-light tracking-wide">
+                Speak naturally. AetherScribe processes with intent.
+            </p>
+</div>
+<!-- Quick Access Bento (Lower Screen) -->
+<div class="absolute bottom-16 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl px-12 opacity-40 hover:opacity-100 transition-opacity duration-500">
+<div class="p-6 rounded-2xl glass-hairline bg-white/5 backdrop-blur-md flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary/60" data-icon="history">history</span>
+<div>
+<h3 class="text-xs font-headline font-bold text-white/60 mb-1">Recent Session</h3>
+<p class="text-[11px] font-body text-white/30 leading-relaxed">Design Sprint: Architecture Review &amp; Fluidity Exploration...</p>
+</div>
+</div>
+<div class="p-6 rounded-2xl glass-hairline bg-white/5 backdrop-blur-md flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary/60" data-icon="auto_awesome">auto_awesome</span>
+<div>
+<h3 class="text-xs font-headline font-bold text-white/60 mb-1">AI Suggestion</h3>
+<p class="text-[11px] font-body text-white/30 leading-relaxed">Continue your last analysis on "Spatial Interaction Models"?</p>
+</div>
+</div>
+<div class="p-6 rounded-2xl glass-hairline bg-white/5 backdrop-blur-md flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary/60" data-icon="bolt">bolt</span>
+<div>
+<h3 class="text-xs font-headline font-bold text-white/60 mb-1">Shortcut</h3>
+<p class="text-[11px] font-body text-white/30 leading-relaxed">Press <span class="px-1.5 py-0.5 rounded bg-white/10 font-mono">⌘ + Space</span> to instantly start capture.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-2xl flex justify-around items-center z-50">
+<span class="material-symbols-outlined text-primary" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span class="material-symbols-outlined text-on-surface/40" data-icon="insights">insights</span>
+<span class="material-symbols-outlined text-on-surface/40" data-icon="folder_open">folder_open</span>
+<span class="material-symbols-outlined text-on-surface/40" data-icon="tune">tune</span>
+</nav>
+<!-- Atmospheric Detail Elements -->
+<div class="fixed top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+<div class="fixed bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+</body></html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&amp;family=Outfit:wght@300;400&amp;family=JetBrains+Mono&amp;family=Manrope:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline": "#958ea0",
+            "tertiary-fixed": "#ffd9e4",
+            "on-secondary-fixed": "#001a42",
+            "primary-fixed-dim": "#d0bcff",
+            "inverse-surface": "#e1e2eb",
+            "on-secondary-fixed-variant": "#004395",
+            "inverse-primary": "#6d3bd7",
+            "on-secondary": "#002e6a",
+            "inverse-on-surface": "#2e3037",
+            "surface-dim": "#10131a",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#e9ddff",
+            "secondary-fixed": "#d8e2ff",
+            "secondary": "#adc6ff",
+            "on-background": "#e1e2eb",
+            "tertiary": "#ffb0cd",
+            "surface-bright": "#363940",
+            "surface": "#10131a",
+            "on-tertiary-fixed-variant": "#8c0053",
+            "tertiary-fixed-dim": "#ffb0cd",
+            "tertiary-container": "#f751a1",
+            "surface-container-low": "#191c22",
+            "background": "#10131a",
+            "surface-container-high": "#272a31",
+            "surface-container-lowest": "#0b0e14",
+            "on-surface-variant": "#cbc3d7",
+            "on-primary-container": "#340080",
+            "primary": "#d0bcff",
+            "surface-variant": "#32353c",
+            "on-secondary-container": "#e6ecff",
+            "primary-container": "#a078ff",
+            "on-surface": "#e1e2eb",
+            "on-error": "#690005",
+            "secondary-container": "#0566d9",
+            "outline-variant": "#494454",
+            "on-primary": "#3c0091",
+            "surface-container": "#1d2026",
+            "on-primary-fixed": "#23005c",
+            "on-tertiary-fixed": "#3e0022",
+            "secondary-fixed-dim": "#adc6ff",
+            "error-container": "#93000a",
+            "on-tertiary": "#640039",
+            "surface-tint": "#d0bcff",
+            "on-tertiary-container": "#570032"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Outfit"],
+            "mono": ["JetBrains Mono"],
+            "label": ["Manrope"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-panel {
+      backdrop-filter: blur(32px);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .ghost-border {
+      border: 0.5px solid rgba(255, 255, 255, 0.08);
+    }
+    .shimmer-sweep {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), rgba(255,255,255,0.2), rgba(255,255,255,0.05), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite linear;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .ambient-orb {
+      filter: blur(100px);
+      opacity: 0.4;
+      z-index: -1;
+    }
+    .pulse-opacity {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body selection:bg-primary/30 min-h-screen overflow-hidden">
+<!-- Background Orbs -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<div class="ambient-orb absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-primary rounded-full"></div>
+<div class="ambient-orb absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-secondary-container rounded-full"></div>
+<div class="ambient-orb absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-tertiary-container rounded-full"></div>
+</div>
+<!-- Top Navigation (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-12 py-8 w-full shadow-[0_20px_50px_rgba(139,92,246,0.08)] bg-transparent">
+<div class="text-2xl font-bold tracking-tighter text-white/90 font-headline">AetherScribe</div>
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-8">
+<a class="text-white/40 font-light hover:text-white/80 transition-opacity duration-300 font-label" href="#">History</a>
+<a class="text-white/40 font-light hover:text-white/80 transition-opacity duration-300 font-label" href="#">Library</a>
+<a class="text-white border-b border-violet-500/50 pb-1 font-label" href="#">Models</a>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-white/60 cursor-pointer hover:text-white transition-colors" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-white/60 cursor-pointer hover:text-white transition-colors" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- Side Navigation (Shared Component) -->
+<aside class="fixed left-6 top-1/2 -translate-y-1/2 h-[819px] w-20 rounded-full border border-white/10 bg-white/5 backdrop-blur-[32px] shadow-2xl shadow-violet-900/20 flex flex-col items-center py-10 justify-between z-50">
+<div class="flex flex-col gap-10 items-center">
+<div class="group cursor-pointer">
+<span class="material-symbols-outlined text-violet-400 scale-110 transition-all duration-500 cubic-bezier(0.23,1,0.32,1)" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<div class="group cursor-pointer p-3 hover:bg-white/10 hover:text-white rounded-full transition-all duration-300">
+<span class="material-symbols-outlined text-white/30" data-icon="insights">insights</span>
+</div>
+<div class="group cursor-pointer p-3 hover:bg-white/10 hover:text-white rounded-full transition-all duration-300">
+<span class="material-symbols-outlined text-white/30" data-icon="folder_open">folder_open</span>
+</div>
+<div class="group cursor-pointer p-3 hover:bg-white/10 hover:text-white rounded-full transition-all duration-300">
+<span class="material-symbols-outlined text-white/30" data-icon="tune">tune</span>
+</div>
+</div>
+<div class="group cursor-pointer p-3 hover:bg-white/10 hover:text-white rounded-full transition-all duration-300">
+<span class="material-symbols-outlined text-white/30" data-icon="help_outline">help_outline</span>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="relative z-10 pt-32 pb-12 px-24 h-screen flex flex-col items-center justify-center">
+<!-- Spatial Layer Container -->
+<div class="relative w-full max-w-5xl h-full max-h-[700px]">
+<!-- Background Content (Listening Screen Dimmed) -->
+<div class="absolute inset-0 opacity-20 filter grayscale transition-all duration-1000">
+<div class="glass-panel ghost-border rounded-[2.5rem] p-12 h-full flex flex-col gap-10">
+<div class="flex items-start gap-8">
+<div class="w-1.5 h-16 bg-primary-container rounded-full mt-2"></div>
+<div class="flex-1">
+<h2 class="font-headline text-4xl font-bold tracking-tight mb-4">Initial Capture Phase</h2>
+<p class="text-xl font-light text-on-surface/60 leading-relaxed">
+                The quantum state of the discussion was captured with 99.4% acoustic fidelity. Sensors detected localized spikes in collaborative energy during the feasibility discussion.
+              </p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12 mt-8">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs text-primary">00:42:12</span>
+<span class="h-px flex-1 bg-white/10"></span>
+</div>
+<p class="text-lg font-light text-on-surface/40">Architectural nodes are being mapped against legacy systems...</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="font-mono text-xs text-primary">00:43:05</span>
+<span class="h-px flex-1 bg-white/10"></span>
+</div>
+<p class="text-lg font-light text-on-surface/40">Encryption protocols defined by the steering committee.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Processing Overlay: Synthesizing Screen -->
+<div class="absolute inset-0 z-20 flex flex-col items-center justify-center">
+<!-- Center Synthesizing Card -->
+<div class="glass-panel ghost-border rounded-[3rem] w-[500px] p-10 shadow-2xl shadow-primary/10 relative overflow-hidden flex flex-col items-center">
+<!-- Animated Processing Pulse -->
+<div class="absolute top-0 left-0 w-full h-1 shimmer-sweep"></div>
+<div class="mb-10 relative">
+<div class="w-24 h-24 rounded-full border-2 border-primary/20 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full border border-primary/40 animate-pulse flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+<!-- Pulse rings -->
+<div class="absolute inset-[-10px] rounded-full border border-primary/10 pulse-opacity"></div>
+<div class="absolute inset-[-25px] rounded-full border border-primary/5 pulse-opacity" style="animation-delay: 0.5s"></div>
+</div>
+<div class="text-center space-y-2 mb-12">
+<h3 class="font-headline text-[#94A3B8] text-lg uppercase tracking-[0.2em] pulse-opacity font-bold">Distilling insights...</h3>
+<p class="font-mono text-xs text-on-surface/30">AI MODEL: AETHER-GEN-IV</p>
+</div>
+<!-- Skeleton Lines representing summary being built -->
+<div class="w-full space-y-4 px-4">
+<div class="h-3 w-full bg-white/5 rounded-full relative overflow-hidden">
+<div class="absolute inset-0 shimmer-sweep"></div>
+</div>
+<div class="h-3 w-5/6 bg-white/5 rounded-full relative overflow-hidden">
+<div class="absolute inset-0 shimmer-sweep" style="animation-delay: 0.2s"></div>
+</div>
+<div class="h-3 w-4/6 bg-white/5 rounded-full relative overflow-hidden">
+<div class="absolute inset-0 shimmer-sweep" style="animation-delay: 0.4s"></div>
+</div>
+<div class="h-3 w-full bg-white/5 rounded-full relative overflow-hidden">
+<div class="absolute inset-0 shimmer-sweep" style="animation-delay: 0.6s"></div>
+</div>
+</div>
+<!-- Technical Specs Footer -->
+<div class="mt-12 w-full pt-8 border-t border-white/5 flex justify-between items-center opacity-60">
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-on-surface/40">LATENCY</span>
+<span class="font-mono text-xs text-primary">12ms</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-mono text-[10px] text-on-surface/40">TOKENS</span>
+<span class="font-mono text-xs text-primary">4.2k/s</span>
+</div>
+</div>
+</div>
+<!-- Floating Status Badges -->
+<div class="mt-8 flex gap-4">
+<div class="glass-panel ghost-border px-4 py-2 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="text-xs font-mono text-on-surface/60">NEURAL MAPPING</span>
+</div>
+<div class="glass-panel ghost-border px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="cloud_sync">cloud_sync</span>
+<span class="text-xs font-mono text-on-surface/60">SYNCING VAULT</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Visualizer (Minimalist) -->
+<div class="fixed bottom-0 left-0 w-full h-1 bg-white/5">
+<div class="h-full bg-primary-container w-1/3 shimmer-sweep"></div>
+</div>
+<!-- Ambient Image Anchor for context -->
+<div class="hidden">
+<img data-alt="Abstract cinematic 3D render of ethereal purple and blue light waves flowing through dark glass spheres in deep space environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGjZ7PFSyP1_2FM6aYfLQjtYHgMdP5ffdYNGtH_3GHlqqWsub0ztiGWXLq3l3FYpczcaUUK5ykMEyPezqfsb1i2nXFHkp2fwJjQ-2H8YT9IA0_P2mxFFRNjSzQ88IiInmdSBJI-4C5orUKtLYwF5MlGmc6C6Oa0L449tW_pCoFfBPbzv98DrDoSrcpc5qofkSHT2O_FvXXV_WsOjfQ0H76n5WNKBA69AuB5JLhatPz646lHcvCwvJ5pqDut6FB8zF4SP__tq-JACk"/>
+</div>
+<script>
+  setTimeout(function() {
+    window.location.href = 'demo-results.html';
+  }, 3000);
+</script>
+</body></html>

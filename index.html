@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AudioToNotes | Turn Conversations Into Searchable Knowledge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="script.js"></script>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 dark:bg-[#0b1326]/60 backdrop-blur-xl shadow-[0px_20px_40px_rgba(218,226,253,0.04)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-violet-500 dark:text-[#d0bcff] text-2xl" data-icon="waves">waves</span>
+<a href="index.html" class="text-2xl font-black tracking-tighter text-violet-100 dark:text-[#dae2fd] font-headline">AudioToNotes</a>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 dark:text-[#939bb0] hover:text-violet-300 dark:hover:text-[#ccbeff] transition-all duration-300 font-inter text-sm" href="features.html">Features</a>
+<a class="text-slate-400 dark:text-[#939bb0] hover:text-violet-300 dark:hover:text-[#ccbeff] transition-all duration-300 font-inter text-sm" href="security.html">Security</a>
+<a class="text-slate-400 dark:text-[#939bb0] hover:text-violet-300 dark:hover:text-[#ccbeff] transition-all duration-300 font-inter text-sm" href="pricing.html">Pricing</a>
+<a class="text-slate-400 dark:text-[#939bb0] hover:text-violet-300 dark:hover:text-[#ccbeff] transition-all duration-300 font-inter text-sm" href="teams.html">Teams</a>
+</div>
+<div class="flex items-center gap-2 md:gap-4">
+<button class="hidden md:block text-slate-400 dark:text-[#939bb0] font-inter text-sm hover:text-on-surface">Login</button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 md:px-6 rounded-full font-headline font-bold text-sm active:scale-90 transition-transform" onclick="window.location.href='demo.html'">Book Demo</button>
+<button class="flex md:hidden text-on-surface p-2"><span class="material-symbols-outlined">menu</span></button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative px-8 max-w-7xl mx-auto pt-20 pb-32 text-center md:text-left overflow-x-hidden md:overflow-x-visible">
+<!-- Animated Background Blobs -->
+<div class="blob w-96 h-96 bg-primary/20 top-0 -left-20"></div>
+<div class="blob w-[30rem] h-[30rem] bg-secondary/10 top-40 right-0" style="animation-delay: -5s"></div>
+<div class="blob w-80 h-80 bg-tertiary/20 -bottom-20 left-1/3" style="animation-delay: -10s"></div>
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8 reveal">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-xs font-medium text-secondary uppercase tracking-widest">v4.0 Live Now</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tight leading-[1.1] text-on-surface">
+                    Turn Conversations Into <span class="text-gradient">Searchable Knowledge.</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                    Advanced AI workflows to convert meetings, calls, and interviews into structured intelligence. The ultimate curator for your team's collective wisdom.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="btn-gradient text-on-primary px-8 py-4 rounded-full font-headline font-bold text-lg shadow-xl shadow-primary/10 hover:opacity-90 transition-opacity" onclick="window.location.href='demo.html'">Book Demo</button>
+<button class="px-8 py-4 rounded-full font-headline font-bold text-lg bg-surface-container-highest border border-outline-variant/30 hover:bg-surface-bright transition-colors">Start Free Trial</button>
+</div>
+</div>
+<!-- Product Mockup -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative glass-panel rounded-xl border border-outline-variant/20 overflow-hidden shadow-2xl glass-3d">
+<div class="flex items-center gap-2 px-4 py-3 bg-surface-container-lowest/50 border-b border-outline-variant/10">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-secondary-container/40"></div>
+<div class="w-3 h-3 rounded-full bg-primary-container/40"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 h-auto md:h-[450px] glass-panel-content">
+<!-- Transcription Panel -->
+<div class="col-span-1 md:col-span-7 border-b md:border-b-0 md:border-r border-outline-variant/10 p-6 space-y-4">
+<div class="h-4 w-1/3 bg-surface-variant/40 rounded"></div>
+<div class="space-y-3 pt-4">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex-shrink-0"></div>
+<div class="space-y-2 flex-grow">
+<div class="h-3 w-full bg-surface-variant/60 rounded"></div>
+<div class="h-3 w-5/6 bg-surface-variant/60 rounded"></div>
+</div>
+</div>
+<div class="flex gap-3 pt-4">
+<div class="w-8 h-8 rounded-full bg-secondary/20 flex-shrink-0"></div>
+<div class="space-y-2 flex-grow">
+<div class="h-3 w-full bg-surface-variant/40 rounded"></div>
+<div class="h-3 w-4/6 bg-surface-variant/40 rounded"></div>
+</div>
+</div>
+<div class="flex gap-3 pt-4">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex-shrink-0"></div>
+<div class="space-y-2 flex-grow">
+<div class="h-3 w-full bg-surface-variant/60 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Intelligence Panel -->
+<div class="col-span-1 md:col-span-5 bg-surface-container-lowest/30 p-6 space-y-6">
+<div class="space-y-2">
+<div class="text-[10px] font-bold text-tertiary uppercase tracking-widest">AI Summary</div>
+<div class="h-3 w-full bg-tertiary/20 rounded"></div>
+<div class="h-3 w-full bg-tertiary/20 rounded"></div>
+<div class="h-3 w-2/3 bg-tertiary/20 rounded"></div>
+</div>
+<div class="space-y-2 pt-4">
+<div class="text-[10px] font-bold text-secondary uppercase tracking-widest">Action Items</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded bg-secondary/30 border border-secondary/50"></div>
+<div class="h-2 w-3/4 bg-surface-variant/60 rounded"></div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded bg-secondary/30 border border-secondary/50"></div>
+<div class="h-2 w-1/2 bg-surface-variant/60 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="py-16 bg-surface-container-low/30 overflow-hidden">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="w-full md:w-1/2 lg:w-3/5 xl:w-[60%] ticker-wrap opacity-40 grayscale group">
+<div class="ticker-content items-center">
+<span class="font-headline font-black text-2xl">TECHCORP</span>
+<span class="font-headline font-black text-2xl">VORTEX</span>
+<span class="font-headline font-black text-2xl">LUMINA</span>
+<span class="font-headline font-black text-2xl">NEXUS</span>
+<span class="font-headline font-black text-2xl">TECHCORP</span>
+<span class="font-headline font-black text-2xl">VORTEX</span>
+<span class="font-headline font-black text-2xl">LUMINA</span>
+<span class="font-headline font-black text-2xl">NEXUS</span>
+</div>
+</div>
+<div class="flex flex-row gap-8 md:gap-12 border-t md:border-t-0 md:border-l border-outline-variant/20 pt-8 md:pt-0 pl-0 md:pl-12 w-full md:w-auto justify-center md:justify-start">
+<div class="text-center md:text-left">
+<div class="text-3xl font-headline font-bold text-on-surface">1M+</div>
+<div class="text-xs text-on-surface-variant uppercase tracking-widest font-bold">Hours Processed</div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-3xl font-headline font-bold text-on-surface">500k</div>
+<div class="text-xs text-on-surface-variant uppercase tracking-widest font-bold">Summaries Generated</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem & Solution -->
+<section class="py-32 px-8 max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-2 gap-24 items-center">
+<div class="space-y-12 reveal">
+<h2 class="text-4xl md:text-6xl font-headline font-extrabold leading-tight">
+                    From Raw Audio to <br/> <span class="text-secondary italic">Semantic Intelligence.</span>
+</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-1">Raw, Unstructured Noise</h4>
+<p class="text-on-surface-variant">Hours of dialogue lost in folders, inaccessible and difficult to search or reference.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-1">Structured Intelligence</h4>
+<p class="text-on-surface-variant">Automatically indexed, summarized, and categorized knowledge assets ready for your entire team.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative reveal delay-200">
+<!-- Layered AI Orchestration Diagram -->
+<div class="space-y-4">
+<div class="p-6 bg-surface-container-high rounded-lg border border-outline-variant/20 translate-x-4 md:translate-x-12 relative z-10">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="segment">segment</span>
+<span class="font-bold text-sm">Token-Aware Segmentation</span>
+</div>
+<div class="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full w-2/3 bg-primary"></div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-highest rounded-lg border border-outline-variant/30 relative z-20">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="psychology">psychology</span>
+<span class="font-bold text-sm">Semantic Chunking Engine</span>
+</div>
+<div class="flex gap-2">
+<div class="h-8 w-1/4 bg-secondary/20 rounded border border-secondary/30"></div>
+<div class="h-8 w-1/2 bg-secondary/20 rounded border border-secondary/30"></div>
+<div class="h-8 w-1/4 bg-secondary/20 rounded border border-secondary/30"></div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-high rounded-lg border border-outline-variant/20 -translate-x-4 md:-translate-x-12 relative z-10">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-bold text-sm">Hierarchical Intelligence</span>
+</div>
+<div class="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full w-1/2 bg-tertiary"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Watch Product Tour Section -->
+<section class="py-32 px-8 max-w-7xl mx-auto">
+<div class="text-center mb-16 space-y-4 reveal">
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold">See Sonic Intelligence <span class="text-gradient">in Action</span></h2>
+<p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Witness how we transform chaotic meetings into structured wisdom in under 60 seconds.</p>
+</div>
+<div class="relative max-w-5xl mx-auto group">
+<!-- Decorative Glow -->
+<div class="absolute -inset-4 bg-primary/20 rounded-[2.5rem] blur-3xl opacity-50 group-hover:opacity-75 transition-opacity duration-700"></div>
+<!-- Video Player Placeholder -->
+<div class="relative aspect-video rounded-3xl overflow-hidden border border-outline-variant/30 glass-panel shadow-2xl flex items-center justify-center glass-3d reveal delay-200">
+<!-- Abstract Audio Visual Representation -->
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="w-full h-full flex items-center justify-around px-12 gap-1">
+<div class="w-2 h-24 bg-primary rounded-full audio-wave-animation" style="animation-delay: 0.1s"></div>
+<div class="w-2 h-40 bg-secondary rounded-full audio-wave-animation" style="animation-delay: 0.3s"></div>
+<div class="w-2 h-32 bg-tertiary rounded-full audio-wave-animation" style="animation-delay: 0.5s"></div>
+<div class="w-2 h-56 bg-primary rounded-full audio-wave-animation" style="animation-delay: 0.2s"></div>
+<div class="w-2 h-44 bg-secondary rounded-full audio-wave-animation" style="animation-delay: 0.4s"></div>
+<div class="w-2 h-64 bg-tertiary rounded-full audio-wave-animation" style="animation-delay: 0.1s"></div>
+<div class="w-2 h-36 bg-primary rounded-full audio-wave-animation" style="animation-delay: 0.6s"></div>
+<div class="w-2 h-28 bg-secondary rounded-full audio-wave-animation" style="animation-delay: 0.2s"></div>
+</div>
+</div>
+<!-- Play Button Overlay -->
+<button class="relative z-10 w-24 h-24 md:w-32 md:h-32 flex items-center justify-center rounded-full btn-gradient text-on-primary shadow-[0_0_50px_rgba(160,120,255,0.4)] hover:scale-110 active:scale-95 transition-all duration-300 glass-panel-content">
+<span class="material-symbols-outlined text-5xl md:text-6xl fill-1" data-icon="play_arrow">play_arrow</span>
+</button>
+<!-- Player UI Elements (Simulated) -->
+<div class="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between bg-gradient-to-t from-surface-dim to-transparent opacity-60">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-sm" data-icon="volume_up">volume_up</span>
+<div class="h-1 w-24 bg-on-surface/20 rounded-full overflow-hidden">
+<div class="h-full w-2/3 bg-on-surface"></div>
+</div>
+</div>
+<span class="text-xs font-mono">0:45 / 1:30</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Grid -->
+<section class="py-32 bg-surface-container-low/50">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-24 space-y-4">
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold">Engineered for Precision</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Proprietary models optimized for high-stakes business environments where accuracy is non-negotiable.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/40 transition-all duration-500 group">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="record_voice_over">record_voice_over</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Live Transcription</h3>
+<p class="text-on-surface-variant leading-relaxed">99.9% accuracy with real-time speaker identification, even in noisy office environments.</p>
+</div>
+<!-- Feature 2 -->
+<div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500 group">
+<div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="summarize">summarize</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Speaker-Aware Summaries</h3>
+<p class="text-on-surface-variant leading-relaxed">Contextual summaries that map decisions directly to the stakeholders who made them.</p>
+</div>
+<!-- Feature 3 -->
+<div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-tertiary/40 transition-all duration-500 group">
+<div class="w-14 h-14 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="assignment_turned_in">assignment_turned_in</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Action Item Owners</h3>
+<p class="text-on-surface-variant leading-relaxed">Never miss a follow-up. AI automatically extracts tasks and assigns potential owners.</p>
+</div>
+<!-- Feature 4 -->
+<div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-error/40 transition-all duration-500 group">
+<div class="w-14 h-14 rounded-2xl bg-error/10 flex items-center justify-center text-error mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="report_problem">report_problem</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Risk Detection</h3>
+<p class="text-on-surface-variant leading-relaxed">Identify blockers and potential project risks mentioned during unstructured calls.</p>
+</div>
+<!-- Feature 5 -->
+<div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/40 transition-all duration-500 group">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="history">history</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Ask AI Memory</h3>
+<p class="text-on-surface-variant leading-relaxed">A persistent workspace assistant that remembers every meeting your team has ever had.</p>
+</div>
+<!-- Feature 6 -->
+<div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500 group">
+<div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="integration_instructions">integration_instructions</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4">Enterprise API</h3>
+<p class="text-on-surface-variant leading-relaxed">Seamlessly push intelligence into Slack, Jira, or your custom internal CRM.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Advanced AI Workflow -->
+<section class="py-32 px-8 max-w-7xl mx-auto">
+<div class="flex flex-col lg:flex-row gap-20">
+<div class="lg:w-1/3 sticky top-20 z-30 h-fit space-y-4 md:space-y-6 bg-surface/95 backdrop-blur-xl py-6 -mt-6 -mx-4 px-4 lg:p-0 lg:m-0 lg:bg-transparent lg:backdrop-blur-none border-b border-outline-variant/20 lg:border-none">
+<h2 class="text-3xl md:text-4xl font-headline font-extrabold leading-tight">Hierarchical <br class="hidden lg:block"/> Processing Pipeline</h2>
+<p class="text-sm md:text-base text-on-surface-variant">We don't just transcribe. We analyze the architecture of speech to deliver superior intelligence.</p>
+</div>
+<div class="lg:w-2/3 space-y-12">
+<!-- Step 1 -->
+<div class="flex gap-10 group">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center font-headline font-bold text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">01</div>
+<div class="w-0.5 h-full bg-outline-variant/20 mt-4"></div>
+</div>
+<div class="pb-16">
+<h4 class="text-2xl font-headline font-bold mb-4">Acoustic Fingerprinting</h4>
+<p class="text-lg text-on-surface-variant leading-relaxed">Advanced diarization separates multiple speakers even with overlapping speech patterns or varying mic quality.</p>
+<div class="mt-6 p-4 bg-surface-container-high rounded-xl border border-outline-variant/10">
+<img alt="Visual representation of audio frequency waves and speaker segments" class="w-full h-32 object-cover rounded-lg opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfWP57Sxb16Zkmd4nepwPoYyXJBUF1Et033XUIQaAI7O6iQC8OXX8PmJ7X94fzGHqQ4zt23TMil4ZUanGV1tSkOU3b5AP1eK5Tm4nEAGgP5eXc5fOZNAjVleMARzKfQsSqUB3kbDZzVsbmss88j8sQgy8r87oL9d1T281qeM_dEJF1ehQkowyEFunOZNOw6kBdCj2NyqWjjPWoipw8o65Z_SoCUsaXzYy5lx32ZjEGi0xlsrMb75ehcTwUXKy8-xrVXuKHioEhTYQ"/>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-10 group">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full border-2 border-secondary flex items-center justify-center font-headline font-bold text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">02</div>
+<div class="w-0.5 h-full bg-outline-variant/20 mt-4"></div>
+</div>
+<div class="pb-16">
+<h4 class="text-2xl font-headline font-bold mb-4">Recursive Summarization</h4>
+<p class="text-lg text-on-surface-variant leading-relaxed">Our pipeline handles 10-minute syncs and 4-hour workshops differently, using hierarchical summarization to preserve critical nuance.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-10 group">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full border-2 border-tertiary flex items-center justify-center font-headline font-bold text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-all">03</div>
+</div>
+<div class="pb-0">
+<h4 class="text-2xl font-headline font-bold mb-4">Structured Export</h4>
+<p class="text-lg text-on-surface-variant leading-relaxed">The final layer transforms insights into actionable JSON, Notion blocks, or PDF reports automatically.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing & Security -->
+<section class="py-32 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid lg:grid-cols-3 gap-8 items-stretch mb-24">
+<!-- Pricing Card 1 -->
+<div class="p-10 rounded-xl bg-surface-container border border-outline-variant/10 flex flex-col">
+<h4 class="text-sm font-bold text-on-surface-variant uppercase tracking-widest mb-2">Starter</h4>
+<div class="text-4xl font-headline font-extrabold mb-6">$0 <span class="text-base font-normal text-on-surface-variant">/mo</span></div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-lg" data-icon="check">check</span> 5 hours / month</li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-lg" data-icon="check">check</span> Basic Summarization</li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-lg" data-icon="check">check</span> Web App Access</li>
+</ul>
+<button class="w-full py-3 rounded-full border border-outline-variant/40 font-headline font-bold hover:bg-surface-variant transition-colors">Start Free</button>
+</div>
+<!-- Pricing Card 2 (Featured) -->
+<div class="p-10 rounded-xl bg-surface-container-high border-2 border-primary relative overflow-hidden flex flex-col">
+<div class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Most Popular</div>
+<h4 class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Pro</h4>
+<div class="text-4xl font-headline font-extrabold mb-6">$49 <span class="text-base font-normal text-on-surface-variant">/mo</span></div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg" data-icon="check">check</span> Unlimited processing</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg" data-icon="check">check</span> Advanced Intelligence</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg" data-icon="check">check</span> Zoom/Teams Integration</li>
+<li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg" data-icon="check">check</span> Workspace Search</li>
+</ul>
+<button class="w-full py-3 rounded-full btn-gradient text-on-primary font-headline font-bold shadow-lg shadow-primary/20">Upgrade to Pro</button>
+</div>
+<!-- Pricing Card 3 -->
+<div class="p-10 rounded-xl bg-surface-container border border-outline-variant/10 flex flex-col">
+<h4 class="text-sm font-bold text-on-surface-variant uppercase tracking-widest mb-2">Enterprise</h4>
+<div class="text-4xl font-headline font-extrabold mb-6">Custom</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-lg" data-icon="check">check</span> SSO &amp; IAM Controls</li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-lg" data-icon="check">check</span> Custom AI Training</li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-lg" data-icon="check">check</span> Dedicated Success Manager</li>
+</ul>
+<button class="w-full py-3 rounded-full border border-outline-variant/40 font-headline font-bold hover:bg-surface-variant transition-colors">Contact Sales</button>
+</div>
+</div>
+<!-- Security Panel -->
+<div class="glass-panel p-12 rounded-xl border border-outline-variant/20 flex flex-col md:flex-row items-center gap-12">
+<div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="security" data-weight="fill">security</span>
+</div>
+<div class="flex-grow space-y-4">
+<h3 class="text-2xl font-headline font-bold">Bank-Grade Security Architecture</h3>
+<p class="text-on-surface-variant leading-relaxed">Your conversations are your competitive advantage. We ensure them stay private with AES-256 encryption at rest, TLS 1.3 in transit, and SOC2 Type II compliance.</p>
+<div class="flex gap-6 pt-2">
+<span class="text-xs font-bold text-secondary uppercase tracking-widest flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span> GDPR Compliant</span>
+<span class="text-xs font-bold text-secondary uppercase tracking-widest flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span> HIPAA Ready</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-32 px-8">
+<div class="max-w-5xl mx-auto rounded-[3rem] p-16 md:p-24 relative overflow-hidden text-center bg-gradient-to-br from-primary-container/20 to-secondary-container/20 border border-outline-variant/20">
+<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(160,120,255,0.1),transparent)]"></div>
+<div class="relative z-10 space-y-8">
+<h2 class="text-3xl md:text-6xl font-headline font-extrabold tracking-tight">Stop losing details. <br/> Start building knowledge.</h2>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto">Join 10,000+ modern teams turning their voices into a searchable brain.</p>
+<div class="flex justify-center pt-6">
+<button class="btn-gradient text-on-primary px-12 py-5 rounded-full font-headline font-bold text-xl shadow-2xl shadow-primary/20 scale-100 hover:scale-105 active:scale-95 transition-all">Start Free Today</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#131b2e] dark:bg-[#131b2e] w-full pt-24 pb-12">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 px-8 max-w-7xl mx-auto">
+<div class="col-span-2 lg:col-span-1">
+<div class="text-xl font-bold text-violet-200 dark:text-[#dae2fd] mb-6 block font-headline">AudioToNotes</div>
+<p class="text-slate-500 dark:text-[#939bb0] font-inter text-sm leading-relaxed mb-6">The intelligent curator for teams that communicate effectively.</p>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Platform</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="features.html">Features</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">API</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="security.html">Security</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Company</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">About</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Careers</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Blog</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Resources</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Research</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Sales</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="teams.html">Teams</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface text-sm uppercase tracking-widest">Legal</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Privacy</a>
+<a class="text-slate-500 dark:text-[#939bb0] hover:text-white transition-colors text-sm font-inter" href="#">Terms</a>
+</nav>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-20 pt-8 border-t border-outline-variant/10 text-center md:text-left">
+<span class="text-slate-500 dark:text-[#939bb0] font-inter text-sm">© 2024 AudioToNotes. The Intelligent Curator.</span>
+</div>
+</footer>
+</body></html>

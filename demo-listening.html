@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AetherScribe | Live Session</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&amp;family=Outfit:wght@300;400&amp;family=JetBrains+Mono&amp;family=Manrope:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0B0E14;
+            color: #e1e2eb;
+            overflow: hidden;
+        }
+        .glass-panel {
+            backdrop-filter: blur(32px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-orb {
+            filter: blur(100px);
+            position: absolute;
+            z-index: -1;
+            border-radius: 9999px;
+        }
+        .waveform-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "outline": "#958ea0",
+                "tertiary-fixed": "#ffd9e4",
+                "on-secondary-fixed": "#001a42",
+                "primary-fixed-dim": "#d0bcff",
+                "inverse-surface": "#e1e2eb",
+                "on-secondary-fixed-variant": "#004395",
+                "inverse-primary": "#6d3bd7",
+                "on-secondary": "#002e6a",
+                "inverse-on-surface": "#2e3037",
+                "surface-dim": "#10131a",
+                "on-error-container": "#ffdad6",
+                "primary-fixed": "#e9ddff",
+                "secondary-fixed": "#d8e2ff",
+                "secondary": "#adc6ff",
+                "on-background": "#e1e2eb",
+                "tertiary": "#ffb0cd",
+                "surface-bright": "#363940",
+                "surface": "#10131a",
+                "on-tertiary-fixed-variant": "#8c0053",
+                "tertiary-fixed-dim": "#ffb0cd",
+                "tertiary-container": "#f751a1",
+                "surface-container-low": "#191c22",
+                "background": "#10131a",
+                "surface-container-high": "#272a31",
+                "surface-container-lowest": "#0b0e14",
+                "on-surface-variant": "#cbc3d7",
+                "on-primary-container": "#340080",
+                "primary": "#d0bcff",
+                "surface-container-highest": "#32353c",
+                "error": "#ffb4ab",
+                "on-primary-fixed-variant": "#5516be",
+                "surface-variant": "#32353c",
+                "on-secondary-container": "#e6ecff",
+                "primary-container": "#a078ff",
+                "on-surface": "#e1e2eb",
+                "on-error": "#690005",
+                "secondary-container": "#0566d9",
+                "outline-variant": "#494454",
+                "on-primary": "#3c0091",
+                "surface-container": "#1d2026",
+                "on-primary-fixed": "#23005c",
+                "on-tertiary-fixed": "#3e0022",
+                "secondary-fixed-dim": "#adc6ff",
+                "error-container": "#93000a",
+                "on-tertiary": "#640039",
+                "surface-tint": "#d0bcff",
+                "on-tertiary-container": "#570032"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Outfit"],
+                "mono": ["JetBrains Mono"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+</head>
+<body class="flex flex-col h-screen overflow-hidden font-body selection:bg-primary-container/30">
+<!-- Background Orbs -->
+<div class="ambient-orb bg-violet-600/20 w-[600px] h-[600px] -top-48 -left-48"></div>
+<div class="ambient-orb bg-pink-500/10 w-[500px] h-[500px] bottom-10 right-10"></div>
+<div class="ambient-orb bg-blue-600/15 w-[800px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+<!-- Top Navigation (Contextually Suppressed Links but kept for App Context) -->
+<nav class="flex justify-between items-center px-12 py-8 w-full fixed top-0 z-50">
+<div class="text-2xl font-bold tracking-tighter text-white/90 font-headline">AetherScribe</div>
+<div class="flex items-center gap-8">
+<span class="text-white border-b border-violet-500/50 pb-1 font-body text-sm tracking-wide">Capture</span>
+<span class="text-white/40 font-light font-body text-sm tracking-wide hover:text-white/80 transition-opacity duration-300 cursor-pointer">Analysis</span>
+<span class="text-white/40 font-light font-body text-sm tracking-wide hover:text-white/80 transition-opacity duration-300 cursor-pointer">Vault</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full border border-white/10 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="minimalist user avatar on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpdpYM5BnmpL4tHIXntpUtsM52Mw0XQIYRHQEkPtee7LvchAebnzrKSo_Oplf-mzVYX6n89e7m0axzlrZFfkcxiIiziUEvSy_z1m_9VwdmJdglYNxNeBtA_7c74hdLBF9Tgnl4-8iltPPdyWM7r6sB5USajedTpr3kia6kl9BGoJtisEmgVHhZXsSDAwdFbxuDvmE3sEDaNoRvSk7Bg64bgkd3tp1iUkIo-HnTNISOOPRz73-Sej5jXQcy5I6he3c1mcxbZD9oUqQ"/>
+</div>
+</div>
+</nav>
+<!-- Side Navigation -->
+<aside class="fixed left-6 top-1/2 -translate-y-1/2 h-[614px] w-20 rounded-full border border-white/10 glass-panel flex flex-col items-center py-10 justify-between z-40 shadow-2xl shadow-violet-900/20">
+<div class="flex flex-col items-center gap-8">
+<div class="text-violet-400 scale-110 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<div class="text-white/30 hover:bg-white/10 hover:text-white rounded-full p-2 transition-all duration-500 cubic-bezier(0.23,1,0.32,1) cursor-pointer">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+</div>
+<div class="text-white/30 hover:bg-white/10 hover:text-white rounded-full p-2 transition-all duration-500 cubic-bezier(0.23,1,0.32,1) cursor-pointer">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+</div>
+</div>
+<div class="text-white/30 hover:bg-white/10 hover:text-white rounded-full p-2 transition-all duration-500">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</div>
+</aside>
+<!-- Main Transcription Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center px-6 relative z-10 pt-24">
+<!-- Status Indicator -->
+<div class="flex items-center gap-3 mb-12">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-500 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+</span>
+<span class="font-mono text-[10px] tracking-[0.2em] uppercase text-white/50">Session Active • Precision Mode</span>
+</div>
+<!-- Floating Transcript Panel -->
+<div class="max-w-[800px] w-full glass-panel rounded-[2.5rem] p-12 shadow-[0_20px_50px_rgba(139,92,246,0.08)] relative overflow-hidden min-h-[400px]">
+<div class="flex justify-between items-start mb-10">
+<h1 class="font-headline text-4xl font-bold tracking-tight text-white/90">Studio Session</h1>
+<div class="font-mono text-xs text-violet-400/80 bg-violet-400/10 px-3 py-1 rounded-full">LIVE-SYNC: 98%</div>
+</div>
+<div class="space-y-8">
+<!-- Active Speaker Block -->
+<div class="relative pl-6">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-violet-500 to-transparent"></div>
+<p class="text-[18px] leading-relaxed text-[#F8FAFC] font-light opacity-90">
+                        In this session, we're exploring the intersection of design and <span class="text-violet-300">ambient computing</span>. 
+                        The way we interact with machines is shifting from manual input to 
+                        <span class="inline-block border-b border-pink-500/50">context-aware experiences</span>. 
+                        We need to consider how light and shadow play a role in our digital interfaces...
+                    </p>
+</div>
+<!-- Live Stream Text Segment -->
+<div class="pl-6">
+<p class="text-[18px] leading-relaxed text-[#F8FAFC]/40 font-light">
+                        Words appear with a slight fade-in as they are processed in real-time... 
+                        <span class="animate-pulse">|</span>
+</p>
+</div>
+</div>
+<!-- Panel Metadata Overlay (Bottom) -->
+<div class="absolute bottom-8 right-12 flex gap-6">
+<div class="flex flex-col items-end">
+<span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">Confidence</span>
+<span class="font-headline font-bold text-sm text-violet-400">High</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">Runtime</span>
+<span class="font-headline font-bold text-sm text-white/80">04:12:09</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Controls & Waveform -->
+<footer class="w-full relative py-12 flex flex-col items-center">
+<!-- SVG Waveforms -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-40">
+<svg class="w-full h-48 max-w-4xl" fill="none" viewbox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
+<path class="opacity-30" d="M0 100C150 20 350 180 500 100C650 20 850 180 1000 100" stroke="#8B5CF6" stroke-width="2"></path>
+<path class="opacity-40" d="M0 100C200 180 400 20 500 100C600 180 800 20 1000 100" stroke="#EC4899" stroke-width="1.5"></path>
+<path d="M50 100C150 50 250 150 500 100C750 50 850 150 950 100" stroke="#8B5CF6" stroke-width="3"></path>
+</svg>
+</div>
+<!-- Reactive Mic Orb -->
+<div onclick="window.location.href='demo-synthesizing.html'" class="relative group cursor-pointer z-20">
+<!-- Glow layers -->
+<div class="absolute inset-0 bg-pink-500/40 rounded-full blur-2xl scale-125 group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+<div class="absolute inset-0 bg-violet-600/30 rounded-full blur-xl animate-pulse pointer-events-none"></div>
+<!-- Main Button -->
+<button class="relative z-10 w-24 h-24 bg-pink-500 rounded-full flex items-center justify-center shadow-2xl shadow-pink-500/50 hover:scale-105 active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="square" style="font-variation-settings: 'FILL' 1;">square</span>
+</button>
+<!-- Ring Visualizer -->
+<div class="absolute -inset-4 border border-white/10 rounded-full animate-[spin_10s_linear_infinite] pointer-events-none">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="mt-8">
+<p class="font-mono text-[10px] tracking-[0.3em] text-white/30 uppercase">Recording • Session 04</p>
+</div>
+</footer>
+<!-- Decorative Floating Elements -->
+<div class="fixed top-[20%] right-[10%] w-32 h-32 glass-panel rounded-2xl rotate-12 -z-1 opacity-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/20 text-3xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="fixed bottom-[30%] left-[12%] w-24 h-24 glass-panel rounded-full -rotate-12 -z-1 opacity-30 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/20 text-2xl" data-icon="blur_on">blur_on</span>
+</div>
+</body></html>

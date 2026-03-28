@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AetherScribe | Transcription Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&amp;family=Outfit:wght@300;400;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#958ea0",
+              "tertiary-fixed": "#ffd9e4",
+              "on-secondary-fixed": "#001a42",
+              "primary-fixed-dim": "#d0bcff",
+              "inverse-surface": "#e1e2eb",
+              "on-secondary-fixed-variant": "#004395",
+              "inverse-primary": "#6d3bd7",
+              "on-secondary": "#002e6a",
+              "inverse-on-surface": "#2e3037",
+              "surface-dim": "#10131a",
+              "on-error-container": "#ffdad6",
+              "primary-fixed": "#e9ddff",
+              "secondary-fixed": "#d8e2ff",
+              "secondary": "#adc6ff",
+              "on-background": "#e1e2eb",
+              "tertiary": "#ffb0cd",
+              "surface-bright": "#363940",
+              "surface": "#10131a",
+              "on-tertiary-fixed-variant": "#8c0053",
+              "tertiary-fixed-dim": "#ffb0cd",
+              "tertiary-container": "#f751a1",
+              "surface-container-low": "#191c22",
+              "background": "#10131a",
+              "surface-container-high": "#272a31",
+              "surface-container-lowest": "#0b0e14",
+              "on-surface-variant": "#cbc3d7",
+              "on-primary-container": "#340080",
+              "primary": "#d0bcff",
+              "surface-container-highest": "#32353c",
+              "error": "#ffb4ab",
+              "on-primary-fixed-variant": "#5516be",
+              "surface-variant": "#32353c",
+              "on-secondary-container": "#e6ecff",
+              "primary-container": "#a078ff",
+              "on-surface": "#e1e2eb",
+              "on-error": "#690005",
+              "secondary-container": "#0566d9",
+              "outline-variant": "#494454",
+              "on-primary": "#3c0091",
+              "surface-container": "#1d2026",
+              "on-primary-fixed": "#23005c",
+              "on-tertiary-fixed": "#3e0022",
+              "secondary-fixed-dim": "#adc6ff",
+              "error-container": "#93000a",
+              "on-tertiary": "#640039",
+              "surface-tint": "#d0bcff",
+              "on-tertiary-container": "#570032"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Outfit"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0E14;
+            color: #e1e2eb;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+        }
+        .ghost-border {
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+        .ambient-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<!-- Ambient Background Elements -->
+<div class="ambient-orb bg-[#8B5CF6] top-[-200px] left-[-100px]"></div>
+<div class="ambient-orb bg-[#3B82F6] bottom-[-200px] right-[-100px]"></div>
+<div class="ambient-orb bg-[#EC4899] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+<!-- Top Navigation (Shared Component: TopAppBar) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-12 py-8 w-full bg-transparent shadow-[0_20px_50px_rgba(139,92,246,0.08)]">
+<div class="text-2xl font-bold tracking-tighter text-white/90 font-headline">AetherScribe</div>
+<nav class="flex gap-8">
+<a class="text-white/40 font-light hover:text-white/80 transition-opacity duration-300 font-body" href="#">History</a>
+<a class="text-white border-b border-violet-500/50 pb-1 font-body" href="#">Library</a>
+<a class="text-white/40 font-light hover:text-white/80 transition-opacity duration-300 font-body" href="#">Models</a>
+</nav>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-white/60 hover:text-white transition-colors cursor-pointer" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-white/60 hover:text-white transition-colors cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Side Navigation (Shared Component: SideNavBar) -->
+<aside class="fixed left-6 top-1/2 -translate-y-1/2 h-[819px] w-20 rounded-full border border-white/10 bg-white/5 backdrop-blur-[32px] flex flex-col items-center py-10 justify-between z-40 shadow-2xl shadow-violet-900/20">
+<div class="flex flex-col gap-8 items-center">
+<div class="group cursor-pointer flex flex-col items-center transition-all duration-500 cubic-bezier(0.23,1,0.32,1) text-white/30 hover:bg-white/10 hover:text-white rounded-full p-3">
+<span class="material-symbols-outlined text-2xl" data-icon="mic">mic</span>
+</div>
+<div class="group cursor-pointer flex flex-col items-center transition-all duration-500 cubic-bezier(0.23,1,0.32,1) text-violet-400 scale-110 p-3 bg-white/5 rounded-full">
+<span class="material-symbols-outlined text-2xl" data-icon="insights">insights</span>
+</div>
+<div class="group cursor-pointer flex flex-col items-center transition-all duration-500 cubic-bezier(0.23,1,0.32,1) text-white/30 hover:bg-white/10 hover:text-white rounded-full p-3">
+<span class="material-symbols-outlined text-2xl" data-icon="folder_open">folder_open</span>
+</div>
+<div class="group cursor-pointer flex flex-col items-center transition-all duration-500 cubic-bezier(0.23,1,0.32,1) text-white/30 hover:bg-white/10 hover:text-white rounded-full p-3">
+<span class="material-symbols-outlined text-2xl" data-icon="tune">tune</span>
+</div>
+</div>
+<div class="group cursor-pointer flex flex-col items-center transition-all duration-500 cubic-bezier(0.23,1,0.32,1) text-white/30 hover:bg-white/10 hover:text-white rounded-full p-3">
+<span class="material-symbols-outlined text-2xl" data-icon="help_outline">help_outline</span>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-40 pr-12 pl-[120px] w-full flex gap-12 items-start">
+<!-- Left Panel: Summary -->
+<section class="flex-[3] glass ghost-border rounded-[2rem] p-10 shadow-2xl">
+<header class="mb-12">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-3 py-1 bg-violet-500/10 text-violet-400 rounded-full text-[10px] font-mono tracking-widest uppercase">Analysis Phase</span>
+<span class="text-white/20 font-mono text-[10px]">ID: 992-AX-4</span>
+</div>
+<h2 class="font-headline text-5xl font-bold tracking-tight text-white/90 mb-2 leading-tight">Executive Summary</h2>
+<p class="font-body text-white/50 font-light italic">Project Stardust: Strategic Alignment Meeting</p>
+</header>
+<div class="space-y-10">
+<!-- Insight Block -->
+<article class="relative pl-6">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-violet-500 to-transparent"></div>
+<h3 class="font-headline text-xl text-white/80 mb-4 tracking-wide">Key Takeaways</h3>
+<ul class="space-y-4 font-body text-lg text-white/70 font-light leading-relaxed">
+<li class="flex items-start gap-3">
+<span class="text-violet-500 mt-1.5">•</span>
+                            Transition to decentralized GPU clustering confirmed for Q3 rollout.
+                        </li>
+<li class="flex items-start gap-3">
+<span class="text-violet-500 mt-1.5">•</span>
+                            Initial performance benchmarks show 42% reduction in latency for neural processing.
+                        </li>
+<li class="flex items-start gap-3">
+<span class="text-violet-500 mt-1.5">•</span>
+                            Marketing budget reallocated to focus on developer-first ecosystem expansion.
+                        </li>
+</ul>
+</article>
+<!-- Action Items Block -->
+<article class="relative pl-6">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-pink-500/50 to-transparent"></div>
+<h3 class="font-headline text-xl text-white/80 mb-4 tracking-wide">Immediate Actions</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 glass ghost-border rounded-xl">
+<span class="material-symbols-outlined text-pink-400" data-icon="task_alt">task_alt</span>
+<span class="font-body text-sm text-white/80">Draft technical specification for API V2</span>
+</div>
+<div class="flex items-center gap-4 p-4 glass ghost-border rounded-xl">
+<span class="material-symbols-outlined text-pink-400" data-icon="task_alt">task_alt</span>
+<span class="font-body text-sm text-white/80">Schedule follow-up with Infrastructure team</span>
+</div>
+</div>
+</article>
+<!-- Sentiment/Metric Block -->
+<div class="grid grid-cols-2 gap-4 pt-4">
+<div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+<p class="font-mono text-[10px] text-white/30 uppercase tracking-widest mb-2">Sentiment Score</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-headline font-bold text-violet-400">92%</span>
+<span class="text-white/40 text-xs mb-1">Positive</span>
+</div>
+</div>
+<div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+<p class="font-mono text-[10px] text-white/30 uppercase tracking-widest mb-2">Entity Count</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-headline font-bold text-blue-400">14</span>
+<span class="text-white/40 text-xs mb-1">Extracted</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Raw Transcription -->
+<section class="flex-[2] flex flex-col gap-8">
+<div class="glass ghost-border rounded-[2rem] p-8 max-h-[768px] overflow-y-auto custom-scrollbar">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline text-lg text-white/80 font-bold uppercase tracking-widest">Raw Transcript</h3>
+<span class="material-symbols-outlined text-white/20 hover:text-violet-400 cursor-pointer transition-colors" data-icon="more_vert">more_vert</span>
+</div>
+<div class="space-y-8 font-body text-[14px] leading-relaxed text-[#94A3B8]">
+<div class="space-y-2">
+<div class="flex justify-between items-center text-[10px] font-mono uppercase tracking-tighter text-white/30">
+<span>Speaker A (Host)</span>
+<span>00:00:12</span>
+</div>
+<p class="font-light">Welcome everyone. We're here to discuss the Q3 roadmap for AetherScribe. The primary objective today is to finalize our transition plan to the new GPU architecture.</p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-[10px] font-mono uppercase tracking-tighter text-white/30">
+<span>Speaker B (Lead Eng)</span>
+<span>00:00:45</span>
+</div>
+<p class="font-light">Right. To follow up on that, the neural nodes are showing significantly better throughput on the decentralized cluster. We’re seeing about a 40% gain in raw processing speed during peak hours.</p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-[10px] font-mono uppercase tracking-tighter text-white/30">
+<span>Speaker A (Host)</span>
+<span>00:01:15</span>
+</div>
+<p class="font-light">That’s impressive. How does this affect our marketing push for the Pro tier? Can we lean into the real-time capabilities more aggressively now?</p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-[10px] font-mono uppercase tracking-tighter text-white/30">
+<span>Speaker C (Product)</span>
+<span>00:02:04</span>
+</div>
+<p class="font-light">Absolutely. We should highlight the 'Aether-Link' latency benchmarks in the next whitepaper. We've got the data to prove we're outpacing the competition in high-fidelity transcription.</p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-[10px] font-mono uppercase tracking-tighter text-white/30">
+<span>Speaker B (Lead Eng)</span>
+<span>00:02:50</span>
+</div>
+<p class="font-light">One concern is the API V2 stability. We need to ensure that the developer tools are ready before the massive influx of traffic from the new partner integrations.</p>
+</div>
+</div>
+</div>
+<!-- Contextual Card -->
+<div class="glass ghost-border rounded-[1.5rem] p-6 flex items-center gap-4 group hover:bg-white/10 transition-colors cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-violet-400" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-headline text-sm text-white font-bold">Smart Export</h4>
+<p class="text-xs text-white/40 font-light font-body">Auto-sync this analysis to Notion or Obsidian</p>
+</div>
+<span class="material-symbols-outlined text-white/20 ml-auto group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</section>
+</main>
+<!-- Floating Action Pill (Bottom Center) -->
+<div class="fixed bottom-10 left-1/2 -translate-x-1/2 w-[320px] h-[64px] glass ghost-border rounded-full flex items-center justify-between px-2 z-50 shadow-[0_20px_50px_rgba(139,92,246,0.15)] overflow-hidden">
+<button class="flex-1 flex items-center justify-center gap-2 h-[48px] rounded-full hover:bg-white/5 transition-colors group">
+<span class="material-symbols-outlined text-[20px] text-white/40 group-hover:text-violet-400" data-icon="content_copy">content_copy</span>
+<span class="text-[10px] font-mono uppercase tracking-widest text-white/60">Summary</span>
+</button>
+<div class="w-[1px] h-6 bg-white/10"></div>
+<button class="flex-1 flex items-center justify-center gap-2 h-[48px] rounded-full hover:bg-white/5 transition-colors group">
+<span class="material-symbols-outlined text-[20px] text-white/40 group-hover:text-blue-400" data-icon="description">description</span>
+<span class="text-[10px] font-mono uppercase tracking-widest text-white/60">Raw</span>
+</button>
+<button onclick="window.location.href='demo.html'" class="bg-violet-600 hover:bg-violet-500 text-white w-[56px] h-[48px] rounded-full flex items-center justify-center transition-all active:scale-95 shadow-lg shadow-violet-900/40">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'FILL' 0, 'wght' 600;">add</span>
+</button>
+</div>
+</body></html>

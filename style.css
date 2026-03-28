@@ -1,0 +1,102 @@
+.glass-panel {
+    background: rgba(49, 57, 77, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+.text-gradient {
+    background: linear-gradient(to bottom right, #d0bcff, #a078ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.btn-gradient {
+    background: linear-gradient(135deg, #d0bcff 0%, #a078ff 100%);
+}
+.glow-soft {
+    box-shadow: 0px 20px 40px rgba(218, 226, 253, 0.04);
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.audio-wave-animation {
+    background: linear-gradient(90deg, transparent 0%, rgba(208, 188, 255, 0.1) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: wave 3s infinite linear;
+}
+@keyframes wave {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+body {
+  min-height: max(884px, 100dvh);
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay modifiers */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
+/* 3D Glass Parallax */
+.glass-3d {
+    transition: transform 0.5s ease, box-shadow 0.1s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.glass-3d:hover {
+    box-shadow: 0px 30px 60px rgba(208, 188, 255, 0.15), 0px 0px 40px rgba(109, 59, 215, 0.2);
+}
+.glass-panel-content {
+    transform: translateZ(40px);
+    transition: transform 0.5s ease;
+}
+.glass-3d:hover .glass-panel-content {
+    transform: translateZ(60px);
+}
+
+/* Infinite Ticker */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+.ticker-content {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker 35s linear infinite;
+    gap: 4rem;
+    padding-right: 4rem;
+}
+.ticker-content:hover {
+    animation-play-state: paused;
+}
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Floating Blobs */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    animation: blob-float 15s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+    pointer-events: none;
+}
+@keyframes blob-float {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(5vw, -5vh) scale(1.1); }
+    100% { transform: translate(-3vw, 4vh) scale(0.9); }
+}
